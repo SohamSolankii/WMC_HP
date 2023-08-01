@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Profile Page</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+        }
+
+        .profile-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .photo-label {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background-color: #007bff;
+            padding: 5px 10px;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .photo-edit {
+            font-size: 12px;
+        }
+
+        .profile-details input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .profile-details input[type="file"] {
+            display: none;
+        }
+
+        .profile-details input[type="text"]::placeholder,
+        .profile-details input[type="tel"]::placeholder {
+            color: #888;
+        }
+
+        .profile-details input[type="text"]:focus,
+        .profile-details input[type="tel"]:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        /* Optional: Additional Styling for Submit Button */
+        .profile-details button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .profile-details button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-image">
+            <label for="photo-input" class="photo-label">
+                <img src="placeholder.png" alt="Profile Photo">
+                <span class="photo-edit">Edit Photo</span>
+            </label>
+            <input type="file" id="photo-input" accept="image/*">
+        </div>
+        <div class="profile-details">
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="tel" id="number" placeholder="Your Phone Number">
+            <!-- Optional: Add a submit button here if needed -->
+        </div>
+    </div>
+</body>
+</html>
