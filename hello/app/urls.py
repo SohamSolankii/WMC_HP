@@ -20,4 +20,6 @@ urlpatterns = [
     path('addplayerform/<str:team_nam>/',views.addplayerform,name='addplayersform'),
     path('previous/',views.previousmat,name='previousmatches'),
     path('deleteplayer/<str:team_name>/<str:player_id>',views.deleteplayer,name='deleteplayer'),
+    path('profile/',views.profil,name='profile'),
+    path('search/',views.search,name='search'),
 ]

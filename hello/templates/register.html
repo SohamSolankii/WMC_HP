@@ -22,7 +22,6 @@
 }
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
   max-width: 900px;
-  margin-top: 110px;
 }
   </style>
   <body>
@@ -31,7 +30,12 @@
     <div class="msg" style="position:absolute;top:0px;left:0px;width:100%">
       {% if messages %}  
       {% for message in messages %}
-        <div {% if message.tags %} class="alert alert-warning alert-dismissible fade show {{ message.tags }}"role="alert"{% endif %}>
+        <div style="
+          position: absolute;
+          top: 0px;
+          z-index: 1;
+          width:100%;
+      "{% if message.tags %} class="alert alert-warning alert-dismissible fade show {{ message.tags }}"role="alert"{% endif %}>
           {{ message }}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>

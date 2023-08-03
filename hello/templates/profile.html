@@ -1,113 +1,106 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awesome Profile Page</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/static/register/css/register.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgb(130, 106, 251);
+  }
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 900px;
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  max-width: 900px;
+}
+  </style>
+  <body>
 
-        .profile-container {
-            max-width: 400px;
-            width: 100%;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
 
-        .profile-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .profile-image img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        .photo-label {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            background-color: #007bff;
-            padding: 5px 10px;
-            color: #ffffff;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .photo-edit {
-            font-size: 12px;
-        }
-
-        .profile-details input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .profile-details input[type="file"] {
-            display: none;
-        }
-
-        .profile-details input[type="text"]::placeholder,
-        .profile-details input[type="tel"]::placeholder {
-            color: #888;
-        }
-
-        .profile-details input[type="text"]:focus,
-        .profile-details input[type="tel"]:focus {
-            outline: none;
-            border-color: #007bff;
-        }
-
-        /* Optional: Additional Styling for Submit Button */
-        .profile-details button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .profile-details button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="profile-container">
-        <div class="profile-image">
-            <label for="photo-input" class="photo-label">
-                <img src="placeholder.png" alt="Profile Photo">
-                <span class="photo-edit">Edit Photo</span>
-            </label>
-            <input type="file" id="photo-input" accept="image/*">
+    <div class="msg" style="position:absolute;top:0px;left:0px;width:100%">
+      {% if messages %}  
+      {% for message in messages %}
+        <div style="
+          position: absolute;
+          top: 0px;
+          z-index: 1;
+          width:100%;
+      "{% if message.tags %} class="alert alert-warning alert-dismissible fade show {{ message.tags }}"role="alert"{% endif %}>
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div class="profile-details">
-            <input type="text" id="name" placeholder="Your Name">
-            <input type="tel" id="number" placeholder="Your Phone Number">
-            <!-- Optional: Add a submit button here if needed -->
-        </div>
+      {% endfor %}
+    {% endif %}
     </div>
-</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="container">
+      <header>CREATE YOUR PROFILE</header>
+      <form action="" class="form" id="form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-box">
+          <label>FIRST NAME</label>
+          <input type="text" placeholder="first name" id="first-name" name="first-name" required />
+        </div>
+        <div class="input-box">
+            <label>LAST NAME</label>
+            <input type="text" placeholder="last name" id="last-name" name="last-name" required />
+          </div>
+
+          <div class="input-box">
+            <label>YOUR AGE IN YEARS</label>
+            <input type="number" id="age" name="age" min="0" step="1">
+          </div>
+          <br>
+          <label>occupation</label>
+          <div class="select-box">
+            <select id="occupation" name="occupation">
+              <option hidden>user occupation</option>
+              <option value="student">Student</option>
+              <option value="buisnessman">Buisnessman</option>
+              <option value="professor">Professor</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <label for="imageInput">upload your Image:</label>
+            <input type="file" id="image" name="image">
+          </div>
+        <button onclick="l()">SAVE DETAILS</button>
+      </form>
+    </section>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script>
+    function l(){
+      document.getElementById(form).submit();
+    }
+
+  </script>
 </html>

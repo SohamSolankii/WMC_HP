@@ -5,17 +5,21 @@ from django.contrib import messages
 import warnings
 from django.contrib.sessions.models import Session
 from django.db.models import Sum,F
-from app.models import upcoming,teams,addplayers,points,regteam,previous,matchCart
+from app.models import upcoming,teams,addplayers,points,regteam,previous,matchCart,profile
 
 # Create your views here.
 def index(request):
     UPCOMING=upcoming.objects.all()
     previou=previous.objects.all()
-    if request.method=="POST":
-        search=request.POST.get('searchText')
-        return redirect('/#'+search)
     params={"UPCOMING":UPCOMING,"PREVIOUS":previou}
     return render(request,'inde.html',params)
+
+def search(request):
+    query=request.GET['sea']
+    allmatches=upcoming.objects.filter(match_unique_name__icontains=query)
+    allprev=previous.objects.filter(team1__icontains=query)
+    params={'match':allmatches,'allprev':allprev}
+    return render(request,'search.html',params)
 
 def sign(request):
     if request.method=='POST':
@@ -89,7 +93,7 @@ def addplayerform(request,team_nam):
         te=teams.objects.filter(team_name=team_nam)
         params={'players':players,'team':te}
         return redirect('addplayers',team_namee=team_nam)
-
+    
     return render(request,'addplayerform.html')
 def poi(request):
     point=points.objects.all()
@@ -118,7 +122,7 @@ def registerteam(request):
             params={'team':t}
             return render(request,'register.html',params)
         if teams.objects.filter(user=request.user):
-            messages.warning(request, 'you already made your team to edit detail fill this else to edit players click on add/edit players')
+            messages.warning(request, 'you already made your team to edit detail fill this else to edit players scroll down and click on add/edit players')
             t=teams.objects.filter(user=request.user)
             params={'team':t}
             return render(request,'register.html',params)
@@ -184,4 +188,23 @@ def previousdesc(request,previous_id):
 def deleteplayer(request,team_name,player_id):
     player, created = addplayers.objects.get_or_create(id=player_id)
     player.delete()
-    return redirect('addplayers',team_namee=team_name)
+    team=team_name
+    return redirect('addplayers', team_namee=team)
+def profil(request):
+    if profile.objects.filter(user=request.user):
+        messages.warning(request, 'YOU already save your profile to edit put all inputs second time')
+
+    if request.method=="POST":
+        userfname=request.POST.get('first-name')
+        userlname=request.POST.get('last-name')
+        userage=request.POST.get('age')
+        useroccupation=request.POST.get('occupation')
+        userphoto=request.FILES.get('image')
+        prof, created = profile.objects.get_or_create(user=request.user)
+        prof.first_name=userfname
+        prof.last_name=userlname
+        prof.user_age=userage
+        prof.user_image=userphoto
+        prof.user_occupation=useroccupation
+        prof.save()
+    return render(request,'profile.html')

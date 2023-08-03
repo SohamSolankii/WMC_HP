@@ -172,8 +172,9 @@ margin-top:90px;
         {% for i in players %}
         {% if i.players_type == "chaser" %}
         <div class="teamco">
+            <a href="/deleteplayer/{{team.0.team_name}}/{{i.id}}" style="margin-bottom:-20px;font-size:18px; font-weight:500;background-color:red;z-index:100;border:0px;">delete</a>
             <img src="/media/{{i.player_image}}" alt="" srcset="">
-            <h2>{{i.player_name}}</h2>
+            <h2 style="margin-top:-18px;">{{i.player_name}}</h2>
         </div>
         {% endif %}
         {% endfor %}
@@ -184,7 +185,7 @@ margin-top:90px;
         {% for i in players %}
         {% if i.players_type == "keeper" %}
         <div class="teamco">
-            <a href="/deleteplayer/team.0.team_name/{{i.id}}" style="margin-bottom:-20px;font-size:18px; font-weight:500;background-color:red;z-index:100;border:0px;">delete</a>
+            <a href="/deleteplayer/{{team.0.team_name}}/{{i.id}}" style="margin-bottom:-20px;font-size:18px; font-weight:500;background-color:red;z-index:100;border:0px;">delete</a>
             <img src="/media/{{i.player_image}}" alt="" srcset="">
             <h2 style="margin-top:-18px;">{{i.player_name}}</h2>
         </div>
@@ -194,10 +195,11 @@ margin-top:90px;
     <h1>BEATERS</h1>
     <div class="playerscontainer">
         {% for i in players %}
-        {% if i.players_type == "three" %}
+        {% if i.players_type == "beater" %}
         <div class="teamco">
+            <a href="/deleteplayer/{{team.0.team_name}}/{{i.id}}" style="margin-bottom:-20px;font-size:18px; font-weight:500;background-color:red;z-index:100;border:0px;">delete</a>
             <img src="/media/{{i.player_image}}" alt="" srcset="">
-            <h2>{{i.player_name}}</h2>
+            <h2 style="margin-top:-18px;">{{i.player_name}}</h2>
         </div>
         {% endif %}
         {% endfor %}
@@ -205,10 +207,11 @@ margin-top:90px;
     <h1>SEEKERS</h1>
     <div class="playerscontainer">
         {% for i in players %}
-        {% if i.players_type == "four" %}
+        {% if i.players_type == "seeker" %}
         <div class="teamco">
+            <a href="/deleteplayer/{{team.0.team_name}}/{{i.id}}" style="margin-bottom:-20px;font-size:18px; font-weight:500;background-color:red;z-index:100;border:0px;">delete</a>
             <img src="/media/{{i.player_image}}" alt="" srcset="">
-            <h2 style="margin-top:0px;">{{i.player_name}}</h2>
+            <h2 style="margin-top:-18px;">{{i.player_name}}</h2>
         </div>
         {% endif %}
         {% endfor %}

@@ -1,82 +1,108 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{product.0.product_name}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/productpage/css/productpage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/static/assets/css/animate.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/static/register/css/register.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgb(130, 106, 251);
+  }
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 900px;
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  max-width: 900px;
+}
+  </style>
   <body>
-      <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-    <div class = "card-wrapper" style="height:auto">
-      <div class = "card">
-        <!-- card left -->
-        <div class = "product-imgs">
-          <div class = "img-display">
-            <div class = "img-showcase">
-              <img src = "/media/{{product.0.product_image}}" alt = "shoe image">
-            </div>
-          </div>
+
+
+    <div class="msg" style="position:absolute;top:0px;left:0px;width:100%">
+      {% if messages %}  
+      {% for message in messages %}
+        <div style="
+          position: absolute;
+          top: 0px;
+          z-index: 1;
+          width:100%;
+      "{% if message.tags %} class="alert alert-warning alert-dismissible fade show {{ message.tags }}"role="alert"{% endif %}>
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <!-- card right -->
-        <div class = "product-content">
-          <h2 class = "product-title">{{product.0.product_name}}</h2>
-
-          <div class = "product-price">
-            <p class = "new-price">Price: <span>{{product.0.product_price}}RS</span></p>
-          </div>
-
-          <div class = "product-detail">
-            <h2>about this item: </h2>
-            <p>{{product.0.product_description}}</p>
-            <ul>
-              <li>Color: <span>Black</span></li>
-              <li>Available: <span>in stock</span></li>
-              <li>Category: <span>{{product.0.product_category}}</span></li>
-              <li>Shipping Area: <span>All over the INDIA</span></li>
-              <li>Shipping Fee: <span>60RS</span></li>
-            </ul>
-          </div>
-
-          <div class = "purchase-info">
-            <form action="" method="post">
-              {% csrf_token %}
-              <input type = "number" min = "0" value = "1" name="quantity">
-            <button type = "submit" value="addcart" onclick="toca()" class = "btn">
-              Add to Cart  <i class = "fas fa-shopping-cart"></i>
-            </button>
-            <button type = "submit" value="buy" class = "btn">BUY NOW</button>
-            </form>
-          </div>
-          <div style="margin-top:-15px;" class = "purchase-info">
-            <button  type = "submit" style="background-color:green" value="buy" onclick="ca()"class = "btn">GO TO CART</button>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
+    {% endif %}
     </div>
-    <script>
 
-function toca(){
-  alert("Product Added to Cart click on cart to see product");
-}
-function ca(){
-  window.location.href="/shop/cart"
-}
-    </script>
-    <script src="/static/productpage/javascript/productpage.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="container">
+      <header>REGISTER YOUR TEAM FOR MATCHES</header>
+      <form action="" class="form" id="form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-box">
+          <label>TEAM NAME</label>
+          <input type="text" placeholder="Team name" id="team-name" name="team-name" required />
+        </div>
+        <div class="input-box">
+            <label>TEAM HOME</label>
+            <input type="text" placeholder="Enter home venue name" id="team-home" name="team-home" required />
+          </div>
+
+          <div class="input-box">
+            <label>TEAM CAPTAIN</label>
+            <input type="text" placeholder="Team Captain name" id="team-captain" name="team-captain" required />
+          </div>
+          <div class="input-box">
+            <label>TEAM coach</label>
+            <input type="text" placeholder="Enter Coach name" id="team-coach" name="team-coach" required />
+          </div>
+          <div class="input-box">
+            <label>TEAM Owner</label>
+            <input type="text" placeholder="Enter Coach name" id="team-owner" name="team-owner" required />
+          </div>
+
+          
+          <div class="input-box">
+            <label for="imageInput">Select a team LOGO:</label>
+            <input type="file" id="team-logo" name="team-logo">
+          </div>
+        <button onclick="l()">Register</button>
+        <button onclick="m()">ADD/EDIT PLAYERS</button>
+      </form>
+    </section>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script>
+    function l(){
+      document.getElementById(form).submit();
+    }
+    function m(){
+      window.location.href = '/{{team.0.team_name}}/addplayers';
+    }
+  </script>
 </html>

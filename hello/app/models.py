@@ -101,3 +101,15 @@ class matchCart(models.Model):
 
     def __str__(self):
         return f"{self.user.username}'s {self.match_unique_name} ({self.quantity})"
+
+
+class profile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    first_name=models.CharField(max_length=100)
+    last_name=models.CharField(max_length=100)
+    user_age=models.IntegerField(default=0)
+    user_occupation=models.CharField(max_length=100,default="")
+    user_image=models.ImageField(upload_to='game/images',default="")
+
+    def __str__(self):
+        return self.first_name

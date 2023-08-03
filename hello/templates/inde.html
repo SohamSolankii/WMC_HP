@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Lugx Gaming Shop HTML5 Template</title>
+    <title>Harry Potter World</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -403,13 +403,13 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
                       {% if user.is_authenticated %}
                       <li><div class="dropdown">
                         <a style="background-color: #ee626b;" href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                          <img style="width:40px;"src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                          <img style="width:40px;" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
                           <strong>{{user.username}}</strong>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                          <li><a class="dropdown-item" href="/register">Register</a></li>
+                          <li><a class="dropdown-item" href="/register">Register Team</a></li>
                           <li><a class="dropdown-item" href="/pointstable">Points Table</a></li>
-                          <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                          <li><a class="dropdown-item" href="/shop">Our Shop</a></li>
                           <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item" href="/logoutt">Log out</a></li>
                         </ul>
@@ -442,10 +442,10 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
             <h2>HARRY POTTER SPORTS!</h2>
             <p style="font-size:20px">Create Your teams ,play matches and book Tickets of upcoming matches.</p>
             <div class="search-input">
-              <form id="search" action="" method="post">
+              <form id="search" action="/search" name ="search" method="get">
                 {% csrf_token %}
-                <input type="text" placeholder="Type Something" id='searchText' name="searchText" onkeypress="handle" />
-                <button role="button" onclick="se()">Search Now</button>
+                <input type="text" placeholder="Type Something" id='sea' name="sea" onkeypress="handle" />
+                <button role="button" onclick="se()">Matches</button>
               </form>
             </div>
           </div>
@@ -573,7 +573,7 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
           <br>
           <div class="book">
             <a href="/bookticket/{{i.id}}/" class="btn btn-success">BOOK TICKETS</a>
-          <a href="#" class="btn btn-primary">View Desc</a>
+          <a href="/bookticket/{{i.id}}/" class="btn btn-primary">View Desc</a>
           </div>
         </div>
       </div>
