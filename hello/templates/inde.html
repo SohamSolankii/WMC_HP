@@ -29,6 +29,33 @@ https://templatemo.com/tm-589-lugx-gaming
 -->
   </head>
   <style>
+    footer {
+    margin-top: 150px;
+    background-color: #06356b;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../images/footer-bg.jpg);
+    min-height: 150px;
+    border-radius: 150px 150px 0px 0px;
+}
+    .wrapper .carousel {
+      margin-left: 5%;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% / 3) - 12px);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 12px;
+      height: 400px;
+      border-radius: 8px;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+  }
+    body{
+      background-color:#04042c;
+   }
     .combined::before{
       content:"";
       position:absolute;
@@ -38,13 +65,11 @@ https://templatemo.com/tm-589-lugx-gaming
       background-position: center; /* Adjust as needed */
       height:660px;
       z-index:-1;
-      background-color: white;
+      background: #04042c;
       background-image: url('');
 
       
-      background: #24C6DC;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 
 
@@ -114,6 +139,17 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
   .games-box img{
     border-radius:100px;
   }
+
+  .main-banner {
+    background:transparent;
+    background-image:url(https://harrypotterexhibition.b-cdn.net/wp-content/uploads/2021/10/HPX_Website_Hero.jpg
+    );
+    border-radius: 0px 0px 80px 80px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 182px 0px;
+}
   @media screen and (max-width: 1241px) {
     .wrapper .carousel {
       grid-auto-columns: calc((100% / 2) - 9px);
@@ -360,6 +396,7 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
   right: 33%;
 }
   }
+
   
   </style>
 
@@ -377,6 +414,7 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
     </div>
   </div>
   <!-- ***** Preloader End ***** -->
+  
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
@@ -385,7 +423,7 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
             <div class="col-12">
                 <nav class="main-nav" style="width:100%; margin:0px;">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         <img src="https://w0.peakpx.com/wallpaper/588/500/HD-wallpaper-harry-potter-logo-team.jpg" alt="" style="width: 88px; height:100px;">
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -452,7 +490,7 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
         </div>
         <div class="col-lg-4 offset-lg-2">
           <div class="right-image">
-            <img src="https://cdn-hogwartslegacy.warnerbrosgames.com/static/game-info-panel-03.jpg" alt="">
+            <img style="min-height:490px;"src="https://www.hindustantimes.com/ht-img/img/2023/04/03/1600x900/quidditch_in_hogwarts_legacy_1680519956986_1680519964361_1680519964361.jpg" alt="">
           </div>
         </div>
       </div>
@@ -522,17 +560,14 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
-              <h2>
+              <h2 style="color:#d8b00b">
                 Register For Matches!
               </h2>
             </div>
-            <p>
-              Normal distribution of letters, as opposed to using 'Content here, content here', making it look like
-              readable English. Many desktop publishing packages and web page editors has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here, content here', making it look like readable
-              English. Many desktop publishing packages and web page editors
+            <p style="color:white" >
+              Welcome to our website, the ultimate platform for team registration and player competitions! Whether you're a sports team, esports squad, or any group with a competitive edge, we've got you covered. Easily register your team and create a profile to showcase your skills. Players, dive into thrilling competitions, connect with teammates, and challenge rivals. Stay up-to-date with fixtures, scores, and rankings. Our user-friendly interface ensures a seamless experience for all. Join now and elevate your team's game to new heights with our innovative features. It's time to unleash your competitive spirit and achieve greatness together!
             </p>
-            <a href="/register">
+            <a style="background-color:#168e4e" href="/register">
               Click here
             </a>
           </div>
@@ -551,7 +586,7 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
   <div class="col-lg-6" style="width:100%">
     <div class="section-heading">
       <h4 style="color:red">Trending</h4>
-      <h2>Upcoming Matches</h2>
+      <h2 style="color:#09b613">Upcoming Matches</h2>
     </div>
   </div>
 
@@ -559,7 +594,7 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
 
 <div class="wrapper-wrapper" >
   <div class="wrapper">
-    <i id="left" class="fa-solid ">
+    <i id="left" style="width:66px;" class="fa-solid ">
       <img src="/static/img/leftlogo.png" alt="img" draggable="false">
     </i>
     <ul class="carousel">
@@ -579,7 +614,7 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
       </div>
       {%endfor%}
     </ul>
-    <i id="right" class="fa-solid ">
+    <i id="right" style="width:66px;" class="fa-solid ">
       <img src="/static/img/rightlogo.png" alt="img" draggable="false">
     </i>
   </div>
@@ -616,15 +651,12 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
-              <h2>
+              <h2 style="color:#f20606ed">
                 See Previous Matches Data!
               </h2>
             </div>
-            <p>
-              Normal distribution of letters, as opposed to using 'Content here, content here', making it look like
-              readable English. Many desktop publishing packages and web page editors has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here, content here', making it look like readable
-              English. Many desktop publishing packages and web page editors
+            <p style="color:white">
+              Welcome to our website, the ultimate destination for exploring a treasure trove of thrilling past match data! Delve into a vast repository of historical records and relive the excitement of previous sports events. From nail-biting finishes to extraordinary performances, our comprehensive collection offers valuable insights and statistics for passionate fans and enthusiastic analysts alike. Immerse yourself in the stories that shaped the sports world, discover players' shining moments, and uncover intriguing trends from the past. Whether you're a dedicated follower or a curious newcomer, our user-friendly interface guarantees an enriching experience as you uncover the magic of sporting history.
             </p>
             <a href="/previous">
               Click here
@@ -633,7 +665,7 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
         </div>
         <div class="col-md-6">
           <div class="img-box">
-            <img src="https://w0.peakpx.com/wallpaper/408/106/HD-wallpaper-harry-fighting-voldemort-video-games-harry-voldemort-other.jpg" alt="">
+            <img src="https://cdn.wccftech.com/wp-content/uploads/2022/01/hogwarts-legacy-logo-2-scaled.jpg" alt="">
           </div>
         </div>
       </div>

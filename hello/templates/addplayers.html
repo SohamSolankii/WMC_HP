@@ -163,8 +163,9 @@ margin-top:90px;
         </div> 
     </div>
 </div>
-<div class="button" onclick="keapers()">
-    <button> Add Players</button>
+<div class="button" >
+    <button onclick="keapers()"> Add Players</button>
+    <button onclick="k()" style="margin-left:20px"> SEE YOUR TEAM</button>
 </div>
 <div class="imgdown">
     <h1 style="margin-top:-91px;">CHASER</h1>
@@ -224,6 +225,9 @@ margin-top:90px;
 <script>
 function keapers(){
     window.location.href = "/addplayerform/{{team.0.team_name}}"
+}
+function k(){
+    window.location.href="/AllTeams/{{team.0.team_name}}"
 }
 </script>
 {% endblock script %}
