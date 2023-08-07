@@ -135,6 +135,7 @@ STATICFILES_DIRS=[
 ]
 #managing media
 STATIC_URL='/static/'
+STATIC_ROOT = '/var/www/https://wmc-test1.onrender.com/static'
 MEDIA_ROOT= os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
 
