@@ -20,6 +20,7 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.utils.translation import gettext_lazy as _
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 admin.site.site_header= "Harry Potter"
 admin.site.site_title="Harry Potter"
@@ -31,4 +32,4 @@ urlpatterns = [
     path('jet/',include('jet.urls','jet')),
     path('jet/dashboard/',include('jet.dashboard.urls','jet-dashboard')),
     path('',include('app.urls')),
-] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
