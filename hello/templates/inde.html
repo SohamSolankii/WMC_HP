@@ -29,6 +29,7 @@ https://templatemo.com/tm-589-lugx-gaming
 -->
   </head>
   <style>
+
     footer {
     margin-top: 150px;
     background-color: #06356b;
@@ -54,7 +55,7 @@ https://templatemo.com/tm-589-lugx-gaming
       scrollbar-width: none;
   }
     body{
-      background-color:#04042c;
+      background-color:black;
    }
     .combined::before{
       content:"";
@@ -148,7 +149,62 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 182px 0px;
+    padding: 274px 0px;
+}
+.right-image{
+  display:none;
+}
+.box > i {
+
+	font-size: 20px;
+
+	color: #777;
+
+}
+
+.box > input{
+
+	flex: 1;
+
+	height: 40px;
+
+	border: none;
+
+	outline: none;
+
+	font-size: 18px;
+
+	padding-left: 10px;
+
+
+}
+.boxx{
+  position:fixed;
+  display:none;
+  transition: display 4s ease;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100vh;
+  z-index:1000;
+  background:black;
+}
+#sea{
+  height: 44px;
+  width: 421px;
+  margin-top:2px;
+}
+.header-area {
+
+  z-index: 2000;
+}
+.combined {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 660px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  background-color: black;
 }
   @media screen and (max-width: 1241px) {
     .wrapper .carousel {
@@ -177,6 +233,7 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
       scrollbar-width: none;
   }
   @media screen and (max-width: 980px) {
+
     .wrapper .carousel {
       grid-auto-columns: calc((100% / 2) - 9px);
     }
@@ -235,8 +292,18 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
 .wrapper i:last-child{
   right: 43%;
 }
+#sea{
+  height: 44px;
+  width: 221px;
+  margin-top:2px;
+}
   }
   @media screen and (max-width: 760px) {
+    #sea{
+      height: 44px;
+      width: 221px;
+      margin-top:2px;
+    }
     .wrapper .carousel {
       grid-auto-columns: calc((100% ) - 9px);
     }
@@ -269,6 +336,11 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
 }
   }
   @media screen and (max-width: 661px) {
+    #sea{
+      height: 44px;
+      width: 221px;
+      margin-top:2px;
+    }
     .wrapper .carousel {
       grid-auto-columns: calc((100% ) - 9px);
     }
@@ -301,6 +373,11 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
 }
   }
   @media screen and (max-width: 532px) {
+    #sea{
+      height: 44px;
+      width: 221px;
+      margin-top:2px;
+    }
     .wrapper .carousel {
       grid-auto-columns: calc((100% ) - 9px);
     }
@@ -333,6 +410,11 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
 }
   }
   @media screen and (max-width: 462px) {
+    #sea{
+      height: 44px;
+      width: 221px;
+      margin-top:2px;
+    }
     .wrapper .carousel {
       grid-auto-columns: calc((100% ) - 9px);
     }
@@ -365,6 +447,11 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
 }
   }
   @media screen and (max-width: 433px) {
+    #sea{
+      height: 44px;
+      width: 221px;
+      margin-top:2px;
+    }
     .wrapper .carousel {
       grid-auto-columns: calc((100% ) - 30px);
     }
@@ -438,6 +525,9 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
                       <li><a href="/shop">OUR SHOP</a></li>
                       <li><a href="/AllTeams">TEAMS</a></li>
                       <li><a href="/#upcomingmatches">MATCHES</a></li>
+                      <li style="cursor:pointer" onclick="n()">
+                        <img src="/static/img/search.png" alt="" style="margin-left:0px;width: 35px; height:30px;">
+                      </li>
                       {% if user.is_authenticated %}
                       <li><div class="dropdown">
                         <a style="background-color: #ee626b;" href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -470,6 +560,51 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
+<div class="boxx" id="boxx">
+  <h1 style="position: absolute;
+
+	top: 30%;
+width:100%;
+text-align:center;
+	font-size: 60px;
+
+	color: white;">Search Matches</h1>
+
+<div style="width:100%;display:flex;align-items:center;justify-content:center;">
+  <div style="
+position:absolute;
+top:50%;
+width: 500px;
+
+height: 50px;
+
+background-color: white;
+
+border-radius: 30px;
+
+
+align-items: center;
+
+"class="box">
+<form id="search" action="/search" name ="search" method="get">
+  {% csrf_token %}
+    <img onclick="se()" style="width:40px; height:40px;margin-left:10px;margin-top:6px;" src="/static/img/search2.png" alt=""  class="rounded-circle me-2">
+
+
+	<input style="border: 0px;
+
+  " placeholder="Search Matches" id='sea' name="sea" onkeypress="handle">
+</form>
+</div>
+</div>
+<div style="position:absolute;
+top:80%;
+width:100%;
+display:flex;align-items:center;
+justify-content:center">
+  <img onclick="o()" style="width:70px; height:70px" src="/static/img/cross.png" alt=""  class="rounded-circle me-2">
+</div>
+</div>
 
   <div class="main-banner">
     <div class="container">
@@ -477,15 +612,9 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
         <div class="col-lg-6 align-self-center">
           <div class="caption header-text">
             <h3 style="color:white">Welcome To The</h5>
-            <h2>HARRY POTTER SPORTS!</h2>
+            <h2>Quidditch SPORTS!</h2>
             <p style="font-size:20px">Create Your teams ,play matches and book Tickets of upcoming matches.</p>
-            <div class="search-input">
-              <form id="search" action="/search" name ="search" method="get">
-                {% csrf_token %}
-                <input type="text" placeholder="Type Something" id='sea' name="sea" onkeypress="handle" />
-                <button role="button" onclick="se()">Matches</button>
-              </form>
-            </div>
+            
           </div>
         </div>
         <div class="col-lg-4 offset-lg-2">
@@ -711,9 +840,9 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
         document.getElementById('menu').style.display='block'
       }
     })
-    a=document.getElementById('search')
     function se(){
-      a.submit()
+      a=document.getElementById('search');
+      a.submit();
 
     }
     function my(){
@@ -721,6 +850,21 @@ background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, F
     }
     function m(){
       window.location.href = "/login";
+    }
+    a=0
+    function n(){
+      if (a==0){
+        document.getElementById('boxx').style.display="block";
+        a=1;
+      }
+      else{
+        document.getElementById('boxx').style.display="none";
+        a=0;
+      }
+    }
+    function o(){
+      document.getElementById('boxx').style.display="none";
+      a=0;
     }
 
   </script>
