@@ -130,12 +130,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #added by me.
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
-]
+# STATICFILES_DIRS=[
+#     os.path.join(BASE_DIR,'static')
+# ]
 #managing media
 STATIC_URL='/static/'
-STATIC_ROOT = '/var/www/https://wmc-test1.onrender.com/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT= os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
 
