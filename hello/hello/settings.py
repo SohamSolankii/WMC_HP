@@ -75,7 +75,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'hello.wsgi.application'
-
+CONTENT_TYPES = {
+    'js': 'application/javascript',
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
