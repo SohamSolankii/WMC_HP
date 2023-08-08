@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.urls import path
 from app import views
+from django.urls import path
+from .views import serve_js
+
 
 urlpatterns = [
     path('',views.index,name='home'),
@@ -22,4 +25,5 @@ urlpatterns = [
     path('deleteplayer/<str:team_name>/<str:player_id>',views.deleteplayer,name='deleteplayer'),
     path('profile/',views.profil,name='profile'),
     path('search/',views.search,name='search'),
+    path('static/js/<path:filename>', serve_js, name='serve_js'),
 ]
