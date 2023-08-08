@@ -5,6 +5,7 @@ from django.contrib import messages
 import warnings
 from django.contrib.sessions.models import Session
 from django.db.models import Sum,F
+from django.conf import settings
 from app.models import upcoming,teams,addplayers,points,regteam,previous,matchCart,profile
 
 # Create your views here.
@@ -13,6 +14,13 @@ def index(request):
     previou=previous.objects.all()
     params={"UPCOMING":UPCOMING,"PREVIOUS":previou}
     return render(request,'inde.html',params)
+
+
+def serve_js(request, filename):
+    file_path = settings.STATIC_ROOT / filename
+    with open(file_path, 'rb') as f:
+        response = HttpResponse(f.read(), content_type='application/javascript')
+    return response
 
 def search(request):
     query=request.GET['sea']
